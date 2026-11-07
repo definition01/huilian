@@ -1,0 +1,43 @@
+code100:
+  swagger:
+    enabled: false
+  security:
+    cors:
+      allowed-origins: ${CORS_ALLOWED_ORIGINS:}
+      allowed-origin-patterns: ${CORS_ALLOWED_ORIGIN_PATTERNS:https://*.your-domain.com}
+
+server:
+  servlet:
+    session:
+      cookie:
+        secure: true
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: ${DB_CONNECTION_TIMEOUT:30000}
+      maximum-pool-size: ${DB_MAX_POOL_SIZE:20}
+      minimum-idle: ${DB_MIN_IDLE:5}
+      idle-timeout: ${DB_IDLE_TIMEOUT:600000}
+      max-lifetime: ${DB_MAX_LIFETIME:1800000}
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT:6379}
+    database: ${REDIS_DATABASE:0}
+    password: ${REDIS_PASSWORD:}
+    timeout: ${REDIS_TIMEOUT:5000ms}
+    lettuce:
+      pool:
+        max-active: ${REDIS_POOL_MAX_ACTIVE:50}
+        max-idle: ${REDIS_POOL_MAX_IDLE:20}
+        min-idle: ${REDIS_POOL_MIN_IDLE:5}
+        max-wait: ${REDIS_POOL_MAX_WAIT:3000ms}
+      shutdown-timeout: ${REDIS_SHUTDOWN_TIMEOUT:100ms}
+
+logging:
+  level:
+    cn.cxdproject.coder: INFO
