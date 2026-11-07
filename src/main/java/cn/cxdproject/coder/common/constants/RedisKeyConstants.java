@@ -1,0 +1,34 @@
+package cn.cxdproject.coder.common.constants;
+
+public interface RedisKeyConstants {
+
+    String PREFIX = "web_scanner:";
+    
+    String TASK_RESULT_KEY = PREFIX + "task:result:";
+
+    String TASK_LOCK_KEY = PREFIX + "task:lock:";
+
+    String SCAN_RATE_LIMIT = PREFIX + "rate_limit:";
+
+    String ARTICLE = "article";
+    String CAPTCHA_PREFIX = "captcha:";
+    String DRAMA = "drama";
+    String LOCATION = "location";
+    String SHOOT = "shoot";
+    String HOTEL = "hotel";
+    String TOUR = "tour";
+    String POLICY = "policy";
+
+
+    static String getTaskResultKey(Long taskId) {
+        return TASK_RESULT_KEY + taskId;
+    }
+    
+    static String getTaskLockKey(Long taskId) {
+        return TASK_LOCK_KEY + taskId;
+    }
+    
+    static String getScanRateLimitKey(String target) {
+        return SCAN_RATE_LIMIT + target;
+    }
+} 

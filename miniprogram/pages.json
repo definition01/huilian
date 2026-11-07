@@ -1,0 +1,223 @@
+{
+	"pages": [
+		{
+			"path": "pages/splash/splash",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "雅安影视服务",
+				"navigationStyle": "custom",
+				"backgroundColor": "#000000"
+			}
+		},
+		{
+			"path": "pages/films/films",
+			"style": {
+				"navigationBarTitleText": "光影雅安",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/films/detail",
+			"style": {
+				"navigationBarTitleText": "作品详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/scenes/scenes",
+			"style": {
+				"navigationBarTitleText": "拍摄场地",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/services/services",
+			"style": {
+				"navigationBarTitleText": "协拍服务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/services/module-list",
+			"style": {
+				"navigationBarTitleText": "服务列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/news/news",
+			"style": {
+				"navigationBarTitleText": "影视资讯",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/filing/filing",
+			"style": {
+				"navigationBarTitleText": "剧组报备",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "default"
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"navigationStyle": "default"
+			}
+		},
+		{
+			"path": "pages/profile/edit",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/password",
+			"style": {
+				"navigationBarTitleText": "修改密码",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/article/detail",
+			"style": {
+				"navigationBarTitleText": "资讯详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/location/detail",
+			"style": {
+				"navigationBarTitleText": "场地详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/shoot/detail",
+			"style": {
+				"navigationBarTitleText": "服务详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/hotel/hotel",
+			"style": {
+				"navigationBarTitleText": "住宿服务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/hotel/detail",
+			"style": {
+				"navigationBarTitleText": "住宿详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/reports",
+			"style": {
+				"navigationBarTitleText": "我的报备",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/feedback-list",
+			"style": {
+				"navigationBarTitleText": "我的反馈",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/feedback/feedback",
+			"style": {
+				"navigationBarTitleText": "意见反馈",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/help",
+			"style": {
+				"navigationBarTitleText": "帮助中心",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/about",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/tourroute/tourroute",
+			"style": {
+				"navigationBarTitleText": "跟着影视游雅安",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/tourroute/detail",
+			"style": {
+				"navigationBarTitleText": "线路详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/policy/policy",
+			"style": {
+				"navigationBarTitleText": "视听政策",
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#667eea",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/policy/detail",
+			"style": {
+				"navigationBarTitleText": "政策详情",
+				"navigationStyle": "custom"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "雅安影视服务",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"navigationStyle": "default",
+		"backgroundColor": "#F8F8F8"
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^uni-icons$": "@/uni_modules/uni-icons/components/uni-icons/uni-icons.vue",
+			"^NavBar$": "@/components/NavBar/NavBar.vue",
+			"^TabBar$": "@/components/TabBar/TabBar.vue",
+			"^Loading$": "@/components/Loading/Loading.vue",
+			"^Empty$": "@/components/Empty/Empty.vue"
+		}
+	},
+	"lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,152 @@
+# 通用配置，环境差异放到 application-{profile}.yml 中
+code100:
+  name: ${APP_NAME:tengxunmeeting-server}
+  version: ${APP_VERSION:1.0.0}
+  build-time: ${APP_BUILD_TIME:local}
+  copyright:
+    owner: ${APP_COPYRIGHT_OWNER:sen}
+    since-year: ${APP_COPYRIGHT_SINCE_YEAR:2026}
+    license: ${APP_LICENSE:MIT}
+  jwt:
+    secret: ${JWT_SECRET:change-me-in-production}
+    expiration: ${JWT_EXPIRATION:86400000}
+    header: Authorization
+    token-start: Bearer
+  storage:
+    type: ${FILE_STORAGE_TYPE:local}
+    local-base-path: ${FILE_STORAGE_LOCAL_PATH:app_uploads}
+    minio-endpoint: ${MINIO_ENDPOINT:}
+    minio-access-key: ${MINIO_ACCESS_KEY:}
+    minio-secret-key: ${MINIO_SECRET_KEY:}
+    minio-bucket: ${MINIO_BUCKET:}
+    cos-secret-id: ${COS_SECRET_ID:}
+    cos-secret-key: ${COS_SECRET_KEY:}
+    cos-region: ${COS_REGION:}
+    cos-bucket: ${COS_BUCKET:}
+    cos-url-prefix: ${COS_URL_PREFIX:}
+  swagger:
+    enabled: false
+  security:
+    cors:
+      allowed-origins: "http://localhost:5173,http://localhost:3000,http://localhost:3001,http://localhost:3002,http://127.0.0.1:5173,http://127.0.0.1:3000,http://127.0.0.1:3001,http://127.0.0.1:3002"
+      allowed-origin-patterns: ""
+
+meeting:
+  netty:
+    enabled: ${MEETING_NETTY_ENABLED:true}
+    auto-startup: ${MEETING_NETTY_AUTO_STARTUP:true}
+    host: ${MEETING_NETTY_HOST:0.0.0.0}
+    port: ${MEETING_NETTY_PORT:10086}
+    boss-threads: ${MEETING_NETTY_BOSS_THREADS:1}
+    worker-threads: ${MEETING_NETTY_WORKER_THREADS:0}
+    so-backlog: ${MEETING_NETTY_SO_BACKLOG:1024}
+    keep-alive: ${MEETING_NETTY_KEEP_ALIVE:true}
+    tcp-no-delay: ${MEETING_NETTY_TCP_NO_DELAY:true}
+    auth-required: ${MEETING_NETTY_AUTH_REQUIRED:true}
+    auth-timeout-seconds: ${MEETING_NETTY_AUTH_TIMEOUT_SECONDS:10}
+    heartbeat-enabled: ${MEETING_NETTY_HEARTBEAT_ENABLED:true}
+    reader-idle-seconds: ${MEETING_NETTY_READER_IDLE_SECONDS:90}
+    writer-idle-seconds: ${MEETING_NETTY_WRITER_IDLE_SECONDS:30}
+    all-idle-seconds: ${MEETING_NETTY_ALL_IDLE_SECONDS:0}
+    max-heartbeat-misses: ${MEETING_NETTY_MAX_HEARTBEAT_MISSES:3}
+    max-frame-length: ${MEETING_NETTY_MAX_FRAME_LENGTH:8192}
+  # 会议 AI：实时翻译（通义千问）与智能总结
+  ai:
+    enabled: ${MEETING_AI_ENABLED:true}
+    base-url: ${DASHSCOPE_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1}
+    api-key: ${DASHSCOPE_API_KEY:}
+    translate-model: ${MEETING_AI_TRANSLATE_MODEL:qwen-plus}
+    summary-model: ${MEETING_AI_SUMMARY_MODEL:qwen-plus}
+    timeout-seconds: ${MEETING_AI_TIMEOUT_SECONDS:60}
+    max-context-segments: ${MEETING_AI_MAX_CONTEXT_SEGMENTS:5}
+    summary-chunk-chars: ${MEETING_AI_SUMMARY_CHUNK_CHARS:3000}
+    summary-reduce-threshold: ${MEETING_AI_SUMMARY_REDUCE_THRESHOLD:8000}
+
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${SERVER_CONTEXT_PATH:}
+    session:
+      cookie:
+        http-only: true
+        secure: ${SERVER_COOKIE_SECURE:false}
+        same-site: lax
+  compression:
+    enabled: true
+    min-response-size: 1024
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript
+
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:tengxunmeeting-server}
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  servlet:
+    multipart:
+      max-file-size: ${SPRING_MULTIPART_MAX_FILE_SIZE:15MB}
+      max-request-size: ${SPRING_MULTIPART_MAX_REQUEST_SIZE:15MB}
+  jackson:
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  type-handlers-package: cn.cxdproject.coder.common.typehandler
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+    local-cache-scope: session
+    cache-enabled: true
+  global-config:
+    banner: false
+    enable-sql-runner: false
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    root: INFO
+    cn.cxdproject.coder: INFO
+    io.netty: INFO
+  file:
+    path: ./logs
+  logstash:
+    enabled: ${LOGSTASH_ENABLED:false}
+    host: ${LOGSTASH_HOST:localhost}
+    port: ${LOGSTASH_PORT:5000}
+    queue-size: ${LOGSTASH_QUEUE_SIZE:512}
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when_authorized
+    prometheus:
+      enabled: true
+
+info:
+  app:
+    name: ${code100.name}
+    version: ${code100.version}
+
+# 火山引擎 ASR 配置
+volcengine:
+  asr:
+    enabled: ${VOLCENGINE_ASR_ENABLED:true}
+    app-id: ${VOLCENGINE_ASR_APP_ID:}
+    access-key: ${VOLCENGINE_ASR_ACCESS_KEY:}
+    secret-key: ${VOLCENGINE_ASR_SECRET_KEY:}
+    endpoint: ${VOLCENGINE_ASR_ENDPOINT:wss://openspeech.bytedance.com/api/v3/sauc/bigmodel}
+    resource-id: ${VOLCENGINE_ASR_RESOURCE_ID:volc.bigasr.sauc.duration}
+    language: ${VOLCENGINE_ASR_LANGUAGE:zh-CN}
+    format: ${VOLCENGINE_ASR_FORMAT:pcm}
+    sample-rate: ${VOLCENGINE_ASR_SAMPLE_RATE:16000}
+
