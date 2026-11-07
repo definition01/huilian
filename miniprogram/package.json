@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@vue/runtime-core": "^3.4.38",
-    "vue": "^3.4.38"
-  },
-  "devDependencies": {
-    "@types/wechat-miniprogram": "^3.4.7"
-  }
-}
