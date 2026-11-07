@@ -1,4 +1,3 @@
-# 通用配置，环境差异放到 application-{profile}.yml 中
 code100:
   name: ${APP_NAME:tengxunmeeting-server}
   version: ${APP_VERSION:1.0.0}
